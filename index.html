@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>Image entry</title>
+
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/application.css" rel="stylesheet">
+
+</head>
+
+<body class="with-iconav" ng-app="app">
+
+    <!-- End Primary Container -->
+    <div class="container-fluid" ng-controller="mainCtrl">
+        <div class="row">
+            <div class="col-sm-2" style="height:200px; background-color:blue;">
+
+            </div>
+            <div class="col-sm-8" style="background-color:red;">
+                <div style="background-color:green;width:100%;position:relative;height:300px;">
+                    <img id='backgroundImage'src="./test.png" class="backgroundLayer" alt="" />
+                    <canvas id="inputCanvas" width="300" height="150" class="inputLayer">
+                        Your browser does not support the HTML5 canvas tag.</canvas>
+                </div>
+            </div>
+
+            <div class="col-sm-2" style="height:200px; background-color:purple;">
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./assets/js/angular.min.js"></script>
+    <script src="./assets/js/angular-animate.min.js"></script>
+    <script src="./assets/js/angular-cookies.min.js"></script>
+    <script src="./assets/js/angular-route.min.js"></script>
+    <script src="./assets/js/angular-sanitize.min.js"></script>
+    <script src="./assets/js/CanvasInput.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>

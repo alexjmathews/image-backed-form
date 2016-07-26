@@ -1,0 +1,12 @@
+.backgroundLayer {
+    max-height: 300px;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    margin: 0 auto;
+}
+.inputLayer {
+    border: 3px solid #08fbe5;
+    position: absolute;
+    z-index: 999;
+}
