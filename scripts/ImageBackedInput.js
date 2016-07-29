@@ -6,7 +6,9 @@ imageInputDir.controller('ImageBackedInput.mainCtrl', function(scope) {
     scope.someArray.push(2);
     scope.someArray.push(3);
 });
-var modelOutput = {};
+
+var imageGlob = undefined;
+
 imageInputDir.directive('imageBackedInput', function($window, $timeout) {
     return {
         restrict: 'E',
@@ -135,8 +137,12 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
 
                 if (imageElement.width == 0) {
 
-
+                    imageGlob = angular.element(imageElement);
                 }
+                angular.element(imageElement).on('load', function() {
+
+                    scope.draw();
+                });
                 $timeout(function() {
                     scope.draw();
                 });
