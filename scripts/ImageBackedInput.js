@@ -133,14 +133,14 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
 
             // When the template is ready draw the overlay
             element.ready(function() {
-                console.log(imageElement.width);
-
+                // Verify that the image exists
                 if (imageElement.width == 0) {
+                    // If it doesn't then wait for onload
                     angular.element(imageElement).on('load', function() {
-
                         scope.draw();
                     });
                 } else {
+                    // If it does ... GO GO GO 
                     $timeout(function() {
                         scope.draw();
                     });
