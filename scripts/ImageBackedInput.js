@@ -59,37 +59,57 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
 
             var drawInput = function(id, inputElement, position) {
                 if (!scope.inputElements[id]) {
-                    scope.inputElements[id] = new CanvasInput({
-                        canvas: inputElement,
-                        fontSize: 14,
-                        fontFamily: 'Arial',
-                        fontColor: '#212121',
-                        padding: 5,
-                        borderWidth: 1,
-                        borderColor: '#000',
-                        borderRadius: 1,
-                        x: position[0],
-                        y: position[1],
-                        width: position[2],
-                        height: position[3],
-                        onfocus: function() {
-                            scope.updateModel();
+                    try {
+                        scope.inputElements[id] = new CanvasInput({
+                            canvas: inputElement,
+                            fontSize: 14,
+                            fontFamily: 'Arial',
+                            fontColor: '#212121',
+                            padding: 5,
+                            borderWidth: 1,
+                            borderColor: '#000',
+                            borderRadius: 1,
+                            x: position[0],
+                            y: position[1],
+                            width: position[2],
+                            height: position[3],
+                            onfocus: function() {
+                                scope.updateModel();
 
-                        },
-                        onblur: function() {
-                            scope.updateModel();
+                            },
+                            onblur: function() {
+                                scope.updateModel();
 
 
-                        },
-                        onkeyup: function() {
-                            scope.updateModel();
+                            },
+                            onkeyup: function() {
+                                scope.updateModel();
+                            }
+                        });
+                        scope.inputElements[id].value(scope.model[id]);
+                    } catch (e) {
+                        if (scope.inputElements[id]) {
+                            scope.inputElements[id].destroy();
                         }
-                    });
+                        delete scope.inputElements[id];
+                    } finally {
+
+                    }
+
                 } else {
-                    scope.inputElements[id].x(position[0])
-                    scope.inputElements[id].y(position[1])
-                    scope.inputElements[id].width(position[2])
-                    scope.inputElements[id].height(position[3])
+                    try {
+                        scope.inputElements[id].x(position[0])
+                        scope.inputElements[id].y(position[1])
+                        scope.inputElements[id].width(position[2])
+                        scope.inputElements[id].height(position[3])
+                    } catch (e) {
+                        if (scope.inputElements[id]) {
+                            scope.inputElements[id].destroy();
+                        }
+                        delete scope.inputElements[id];
+                    } finally {
+
+                    }
                 }
             }
 
@@ -112,7 +132,7 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
                 $timeout(function() {
                     scope.draw();
                     Object.keys(scope.inputElements).forEach(function(key) {
-                         scope.inputElements[key].value(scope.model[key]);
+                        scope.inputElements[key].value(scope.model[key]);
                     });
                 });
             });

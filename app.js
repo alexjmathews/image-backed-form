@@ -12,21 +12,17 @@ angularApp.run(function() {
 angularApp.controller('mainCtrl', function($scope) {
     $scope.message = 'Hello world!';
     $scope.inputModel = {
-        a:"hello"
+        "patient_name": "Alex"
     };
-});
-
-
-angularApp.controller('directiveControl', function($scope) {
     $scope.backgroundImage = './test.png';
     $scope.imageInputs = {
-        a: {
+        "patient_name": {
             x_start: .225,
             x_end: .97,
             y_start: .1,
             y_end: .25
         },
-        b: {
+        "dx": {
             x_start: .07,
             x_end: .97,
             y_start: .3,
