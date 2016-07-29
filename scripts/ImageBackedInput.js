@@ -133,9 +133,12 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
                 console.log(imageElement.width);
 
                 if (imageElement.width == 0) {
-
-                    console.log(imageElement.width);
-                    console.log("it was zero");
+                    var i = 0;
+                    while(imageElement.width == 0 && i != 50) {
+                        $timeout(function() {
+                            i++; 
+                        }, 100)
+                    }
 
                 }
                 $timeout(function() {
