@@ -19,25 +19,26 @@
 
 <body class="with-iconav" ng-app="app">
 
-    <!-- End Primary Container -->
     <div class="container-fluid" ng-controller="mainCtrl">
         <div class="row">
             <div class="col-sm-2" style="height:200px; background-color:blue;">
 
             </div>
-            <div class="col-sm-8" style="background-color:red;">
-                <div style="background-color:green;width:100%;position:relative;height:300px;">
-                    <img id='backgroundImage'src="./test.png" class="backgroundLayer" alt="" />
-                    <canvas id="inputCanvas" width="300" height="150" class="inputLayer">
-                        Your browser does not support the HTML5 canvas tag.</canvas>
-                </div>
+            <div ng-controller="directiveControl" class="col-sm-8" style="background-color:red;">
+                <!-- <image-backed-input image="message"</image-backed-input> -->
+                <image-backed-input image="backgroundImage" inputs="imageInputs" some-array="someArray" model="inputModel"</image-backed-input>
+
             </div>
 
             <div class="col-sm-2" style="height:200px; background-color:purple;">
 
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-xs-12" style="background-color:magenta; ">
+                <h2>{{inputModel}}</h2>
+            </div>
+        </div>
     </div>
 
     <script src="./assets/js/angular.min.js"></script>
@@ -46,6 +47,7 @@
     <script src="./assets/js/angular-route.min.js"></script>
     <script src="./assets/js/angular-sanitize.min.js"></script>
     <script src="./assets/js/CanvasInput.js"></script>
+    <script src="./scripts/ImageBackedInput.js"></script>
     <script src="./app.js"></script>
 </body>
 

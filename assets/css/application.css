@@ -1,12 +1,19 @@
 .backgroundLayer {
-    max-height: 300px;
     max-width: 100%;
+    margin: auto;
+    display: block;
     position: absolute;
-    top: 0;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
 .inputLayer {
     border: 3px solid #08fbe5;
     position: absolute;
     z-index: 999;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
