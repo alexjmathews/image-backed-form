@@ -136,16 +136,15 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
                 console.log(imageElement.width);
 
                 if (imageElement.width == 0) {
+                    angular.element(imageElement).on('load', function() {
 
-                    imageGlob = angular.element(imageElement);
+                        scope.draw();
+                    });
+                } else {
+                    $timeout(function() {
+                        scope.draw();
+                    });
                 }
-                angular.element(imageElement).on('load', function() {
-
-                    scope.draw();
-                });
-                $timeout(function() {
-                    scope.draw();
-                });
             });
         },
         scope: {
