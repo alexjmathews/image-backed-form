@@ -130,6 +130,10 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
 
             // When the template is ready draw the overlay
             element.ready(function() {
+                if (imageElement.width == 0) {
+                    console.log("it was zero");
+
+                }
                 $timeout(function() {
                     scope.draw();
                 });
