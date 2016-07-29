@@ -992,6 +992,9 @@
          * @param  {CanvasInput} self
          */
         mouseup: function(e, self) {
+            if (self.destroyed) {
+                return;
+            }
             var mouse = self._mousePos(e),
                 x = mouse.x,
                 y = mouse.y;
@@ -1012,7 +1015,6 @@
             } else {
                 delete self._selectionStart;
             }
-
             self.click(e, self);
         },
 
@@ -1169,13 +1171,26 @@
                     ctx.clip();
 
                     // draw the inner-shadow from the off-DOM canvas
-                    ctx.drawImage(self._shadowCanvas, 0, 0, scw, sch, bw + self.shadowL, bw + self.shadowT, scw, sch);
+                    try {
+                        ctx.drawImage(self._shadowCanvas, 0, 0, scw, sch, bw + self.shadowL, bw + self.shadowT, scw, sch);
+
+                    } catch (e) {
+                        return self;
+                    } finally {
+
+                    }
                 }
 
                 // draw to the visible canvas
-                if (self._ctx) {
-                    self._ctx.clearRect(self._x, self._y, ctx.canvas.width, ctx.canvas.height);
-                    self._ctx.drawImage(self._renderCanvas, self._x, self._y);
+                try {
+                    if (self._ctx) {
+                        self._ctx.clearRect(self._x, self._y, ctx.canvas.width, ctx.canvas.height);
+                        self._ctx.drawImage(self._renderCanvas, self._x, self._y);
+                    }
+                } catch (e) {
+                    return self;
+                } finally {
+
                 }
 
                 return self;
@@ -1207,6 +1222,7 @@
             self._renderCanvas = null;
             self._shadowCanvas = null;
             self._renderCtx = null;
+            self.destroyed = true;
         },
 
         /**
