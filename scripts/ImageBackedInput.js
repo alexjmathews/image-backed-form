@@ -10,6 +10,7 @@ var modelOutput = {};
 imageInputDir.directive('imageBackedInput', function($window, $timeout) {
     return {
         restrict: 'E',
+        templateUrl: './scripts/ImageBackedInput.html',
         link: function(scope, element, attr) {
             // Verify initial parameters or set to defaults
             if (!scope.image) {
@@ -133,12 +134,7 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
                 console.log(imageElement.width);
 
                 if (imageElement.width == 0) {
-                    var i = 0;
-                    while(imageElement.width == 0 && i != 50) {
-                        $timeout(function() {
-                            i++; 
-                        }, 100)
-                    }
+
 
                 }
                 $timeout(function() {
@@ -152,8 +148,7 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
             inputs: '=',
             someArray: "=",
             model: '='
-        },
-        templateUrl: './scripts/ImageBackedInput.html'
+        }
     };
 });
 
