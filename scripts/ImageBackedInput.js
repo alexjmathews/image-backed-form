@@ -6,10 +6,13 @@ imageInputDir.controller('ImageBackedInput.mainCtrl', function(scope) {
     scope.someArray.push(2);
     scope.someArray.push(3);
 });
-var modelOutput = {};
+
+var imageGlob = undefined;
+
 imageInputDir.directive('imageBackedInput', function($window, $timeout) {
     return {
         restrict: 'E',
+        templateUrl: './scripts/ImageBackedInput.html',
         link: function(scope, element, attr) {
             // Verify initial parameters or set to defaults
             if (!scope.image) {
@@ -130,9 +133,18 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
 
             // When the template is ready draw the overlay
             element.ready(function() {
-                $timeout(function() {
-                    scope.draw();
-                });
+                // Verify that the image exists
+                if (imageElement.width == 0) {
+                    // If it doesn't then wait for onload
+                    angular.element(imageElement).on('load', function() {
+                        scope.draw();
+                    });
+                } else {
+                    // If it does ... GO GO GO 
+                    $timeout(function() {
+                        scope.draw();
+                    });
+                }
             });
         },
         scope: {
@@ -141,8 +153,7 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
             inputs: '=',
             someArray: "=",
             model: '='
-        },
-        templateUrl: '/scripts/imageBackedInput.html'
+        }
     };
 });
 

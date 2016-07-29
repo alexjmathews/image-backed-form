@@ -9,7 +9,6 @@
     right: 0;
 }
 .inputLayer {
-    border: 3px solid #08fbe5;
     position: absolute;
     z-index: 999;
     margin-left: auto;
