@@ -142,7 +142,7 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
 
                     scope.draw();
 
-                    imageElement.on('load', function(event) {
+                    element.on('load', function(event) {
                         console.log("loaded");
                         scope.draw();
                     });
