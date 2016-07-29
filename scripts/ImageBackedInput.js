@@ -142,7 +142,7 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
             someArray: "=",
             model: '='
         },
-        templateUrl: '/scripts/imageBackedInput.html'
+        templateUrl: '/scripts/ImageBackedInput.html'
     };
 });
 
