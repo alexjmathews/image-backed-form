@@ -116,6 +116,8 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
                     scope.draw = function() {
                         // Adjust canvas width and height to match image
                         canvasElement.width = imageElement.width;
+                        console.log( imageElement.clientWidth);
+                        console.log( imageElement.offsetWidth);
                         canvasElement.height = imageElement.height;
 
                         // Get context and draw each input
