@@ -141,6 +141,10 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
                     // When the template is ready draw the overlay
 
                     scope.draw();
+
+                    canvasElement.on('load', function(event) {
+                        scope.draw(); 
+                    });
                 });
             });
         },
