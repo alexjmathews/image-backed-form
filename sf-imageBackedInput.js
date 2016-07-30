@@ -18,11 +18,11 @@ angular.module('schemaForm').config(
     schemaFormDecoratorsProvider.addMapping(
       'bootstrapDecorator',
       'ImageBackedInput',
-      'sf-imageBackedInput-Template.html'
+      'sf-imageBackedInput.html'
     );
     schemaFormDecoratorsProvider.createDirective(
       'ImageBackedInput',
-      'sf-imageBackedInput-Template.html'
+      'sf-imageBackedInput.html'
     );
   }
 ]);
