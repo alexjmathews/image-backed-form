@@ -5,7 +5,7 @@ imageInputDir.controller('ImageBackedInput.mainCtrl', function(scope) {
 
 var imageGlob = undefined;
 
-    imageInputDir.directive('imageBackedInput', function($window, $timeout, attr) {
+    imageInputDir.directive('imageBackedInput', function($window, $timeout) {
     return {
         restrict: 'E',
         templateUrl: './scripts/ImageBackedInput.html',
@@ -18,7 +18,11 @@ var imageGlob = undefined;
                 throw 'ImageBackedInput must be instantiated with inputs.';
             }
             if (!scope.model) {
-                throw 'ImageBackedInput must be instantiated with model.';
+                //throw 'ImageBackedInput must be instantiated with model.';
+                scope.model = {};
+                for(var prop in scope.inputs) {
+                    if (scope.inputs.hasOwnProperty(prop)) scope.model[prop] = '';
+                }
             }
             if (!scope.maxHeight) {
                 // Set to default of 300 pixels
