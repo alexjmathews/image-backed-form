@@ -1,15 +1,11 @@
 var imageInputDir = angular.module('alexjmathews.ImageBackedInput', []);
 
 imageInputDir.controller('ImageBackedInput.mainCtrl', function(scope) {
-    scope.someArray = [];
-    scope.someArray.push(1);
-    scope.someArray.push(2);
-    scope.someArray.push(3);
 });
 
 var imageGlob = undefined;
 
-imageInputDir.directive('imageBackedInput', function($window, $timeout) {
+    imageInputDir.directive('imageBackedInput', function($window, $timeout, attr) {
     return {
         restrict: 'E',
         templateUrl: './scripts/ImageBackedInput.html',
@@ -140,7 +136,7 @@ imageInputDir.directive('imageBackedInput', function($window, $timeout) {
                         scope.draw();
                     });
                 } else {
-                    // If it does ... GO GO GO 
+                    // If it does ... GO GO GO
                     $timeout(function() {
                         scope.draw();
                     });

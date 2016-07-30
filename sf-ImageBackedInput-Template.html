@@ -1,0 +1,27 @@
+<style>
+.backgroundLayer {
+    max-width: 100%;
+    margin: auto;
+    display: block;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+.inputLayer {
+    position: absolute;
+    z-index: 999;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+</style>
+
+<div>
+  <h2>{{form.title}}</h2>
+  <h5>{{form.schema.image}}</h5>
+  <h5>{{form.schema.inputs}}</h5>
+  <image-backed-input image="form.schema.image" inputs="form.schema.inputs" model="$$value$$"></image-backed-input>
+</div>
