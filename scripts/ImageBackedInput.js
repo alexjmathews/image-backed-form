@@ -120,6 +120,8 @@ var imageGlob = undefined;
                 canvasElement.width = imageElement.width;
                 canvasElement.height = imageElement.height;
 
+                element.find('div').css({'background':'red','height':imageElement.height+'px'});
+
                 // Get context and draw each input
                 var ctx = canvasElement.getContext("2d");
                 Object.keys(scope.inputs).forEach(function(key) {

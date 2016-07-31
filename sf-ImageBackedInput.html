@@ -19,7 +19,9 @@
 }
 </style>
 
-<div>
-  <h2>{{form.title}}</h2>
-  <image-backed-input image="form.schema.image" inputs="form.schema.inputs" model="$$value$$"/>
+<div class="form-group schema-form-{{form.type}} {{form.htmlClass}}" ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess(), 'has-feedback': form.feedback !== false }">
+    <label class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title}}
+        <span ng-show="form.required == true" class="req-label">Required</span>
+    </label>
+    <image-backed-input image="form.schema.image" inputs="form.schema.inputs" model="$$value$$" maxHeight="300"/>
 </div>

@@ -1,0 +1,22 @@
+#form-img-container {
+    width:100%;
+    position:relative;
+}
+#form-img {
+    max-width: 100%;
+    margin: auto;
+    display: block;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+#form-img-input {
+    position: absolute;
+    z-index: 999;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
